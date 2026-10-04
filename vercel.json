@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/mcp/:key", "destination": "/api/mcp?key=:key" }
+  ]
+}
