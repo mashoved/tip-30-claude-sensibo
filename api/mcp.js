@@ -176,6 +176,18 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } });
   }
 
+  // One log line per call, without the secret. The leak check reads these from the Vercel logs.
+  const ua = req.headers["user-agent"] || "";
+  for (const m of Array.isArray(body) ? body : [body]) {
+    console.log(JSON.stringify({
+      event: "mcp_call",
+      method: m?.method,
+      tool: m?.params?.name,
+      user_agent: ua.slice(0, 200),
+      country: req.headers["x-vercel-ip-country"] || "",
+    }));
+  }
+
   const batch = Array.isArray(body);
   const replies = (await Promise.all((batch ? body : [body]).map(handleMessage))).filter(Boolean);
   if (!replies.length) return res.status(202).end();
