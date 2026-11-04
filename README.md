@@ -24,7 +24,7 @@
 
 ```
 אני רוצה לשלוט במזגן שלי (Sensibo) דרך Claude. תעשה את זה בשבילי, צעד אחרי צעד:
-1. שכפל את https://github.com/shmuelr16/tip-30-claude-sensibo לתיקייה חדשה.
+1. שכפל את https://github.com/mashoved/tip-30-claude-sensibo לתיקייה חדשה.
 2. בקש ממני את מפתח ה-API של Sensibo (אני לוקח אותו מ-https://home.sensibo.com/me/api). אל תשמור אותו בשום קובץ.
 3. צור מחרוזת אקראית ארוכה בשביל MCP_SECRET.
 4. העלה ל-Vercel עם npx vercel (תעזור לי להתחבר אם צריך).
